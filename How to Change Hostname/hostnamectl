@@ -1,9 +1,0 @@
-#  How to change hostname in ubuntu :
-
-
-hostnamectl 
-sudo -i
-sudo hostnamectl set-hostname testvm123
-nano /etc/hostname
-nano /etc/hosts
-sudo reboot
