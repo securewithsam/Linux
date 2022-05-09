@@ -14,10 +14,10 @@ network:
                     dhcp4: yes
             ens4:
                     dhcp4: no
-                    addresses: [172.16.4.55/24]
-                    gateway4: 172.16.4.1
+                    addresses: [172.161.14.55/24]
+                    gateway4: 172.161.14.1
                     nameservers:
-                        addresses: [172.16.4.1]
+                        addresses: [172.161.14.1]
                         
 
 
