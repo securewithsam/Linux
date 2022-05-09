@@ -22,35 +22,3 @@ network:
 
 
 save and exit (ctrl o , ctrl x )
-
-
-[or]
-
-
-
-# This is the network config written by 'subiquity'
-#Both nics on static IP
-
-network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    ens3:
-      # Note, "dhcp4/6: no" not needed
-      addresses: [172.16.14.5/24]
-      gateway4: 172.16.14.1
-      nameservers:
-        addresses: [172.16.14.1]
-    ens4:
-      # Note, "dhcp4/6: no" not needed
-      addresses: [172.16.100.81/24]
-      gateway4: 172.16.100.1
-      nameservers:
-        addresses: [172.16.100.1]
-        
-        
-
-
-
-
-save and exit (ctrl o , ctrl x )
