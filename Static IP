@@ -12,7 +12,7 @@ network:
     ethernets:
             ens3:
                     dhcp4: yes
-            ens8:
+            ens4:
                     dhcp4: no
                     addresses: [172.16.4.55/24]
                     gateway4: 172.16.4.1
