@@ -1,0 +1,43 @@
+Point VPS-IP to domain and create SSL LetsEncrypt to access via Domain name.
+
+
+1.  Create two  A Records in the DNS Management for the Domain pointing the VPS IP Address
+(Example: A Record "@" xx.xx.xx.xx and "www" xx.xx.xx.xx )
+
+2. # hostnamectl set-hostname foss55.xyz     (Set Hostname to the desired website)
+
+3. # nano /etc/hosts (Add the below line)
+     127.0.0.1 foss55.xyz (replace with your domain)
+     ctrl o, ctrl x  (save it)
+
+4. # systemctl status nginx   (Chk web server status)
+
+5. # nginx -t  (configuration syntax check test )
+
+6. # apt install python3-certbot python3-certbot-nginx   (Install Nginx webserver) 
+
+7. # curl -I xx.xx.xx.xx:443
+
+8. # cd /etc/nginx/sites-available
+
+9. # nano default
+
+10.# scroll down to " server_name _; " and enter the domain name -  server_name foss55.xyz;
+
+11.# nginx -t
+
+12.# systemctl restart nginx && nginx -t
+
+13.# certbot --nginx
+
+14.# Follow on screen instructions ....
+     Choose option 1: For listed website 
+     Choose option 2: For force redirect 
+
+15.# netstat -tulpn
+
+16.# nslookup foss55.xyz
+
+17.# ping foss55.xyz
+
+18.# browse https:foss55.xyz
