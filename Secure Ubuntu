@@ -1,0 +1,68 @@
+1- Add a separate user with sudo access
+#sudo adduser sws
+Enter pwd
+
+#sudo usermod -aG sudo sws
+
+Give access to shell directly to the user:
+#sudo chsh -s /bin/bash sws
+
+To verify 
+#groups sws
+#cat /etc/passwd
+#cat /etc/group
+
+
+#sudo adduser user1
+#cat /etc/passwd
+sudo nano /etc/ssh/sshd_config
+AllowUsers user1 root
+ctrl o,ctrl x
+systemctl restart sshd
+
+To delete
+#deluser sunny sudo 
+#deluser sunny
+
+2- Change SSH Port
+
+#grep -i port /etc/ssh/sshd_config (To check current port)
+#nano /etc/ssh/sshd_config
+# uncomment (Remove the leading # character) and change the port number
+#systemctl restart sshd
+#netstat -tulpn | grep ssh
+
+ssh -p 22000 192.168.1.100 
+
+3- UFW 
+#sudo apt-get install ufw
+#sudo ufw status
+ufw status verbose
+#sudo ufw disable
+#sudo ufw enable
+#sudo ufw default deny incoming
+#sudo ufw default allow outgoing
+#sudo ufw allow ssh
+#sudo ufw allow 22/tcp
+#sudo ufw allow 80/tcp
+#sudo ufw allow 53/udp
+#sudo ufw delete allow ssh
+#sudo ufw delete allow 80/tcp
+#sudo ufw reset (Factory Default State)
+
+
+4- To change hostname 
+#sudo hostnamectl set-hostname newNameHere
+#sudo nano /etc/hosts
+(Replace any occurrence of the existing computer name with your new one.)
+#sudo reboot
+
+
+
+5. Sudo apt update && dist-upgrade -y
+
+6. Automatic Updates:
+sudo apt install unattended-upgrades
+cd /etc/apt/apt.conf.d/
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+
