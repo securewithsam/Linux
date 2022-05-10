@@ -1,0 +1,9 @@
+
+$ Check No Of CPUs
+# cat /proc/cpuinfo | grep processor | wc -l
+# cat /proc/cpuinfo |grep cpu\ cores |uniq
+
+
+To Check Memory
+#free -m 
+#vmstat -s
