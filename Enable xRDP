@@ -1,0 +1,15 @@
+Installing  xrdp   (cannot rdp with root , so create user sws with sudo access)
+
+adduser sws
+usermod -a -G sudo sws
+chsh -s /bin/bash sws
+#cat /etc/passwd
+#cat /etc/group
+
+
+# Install XRDP:
+
+apt-get install xrdp
+#service xrdp start
+# service xrdp-sesman start
+# update-rc.d xrdp enable  
