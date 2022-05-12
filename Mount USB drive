@@ -1,0 +1,10 @@
+sudo fdisk -l
+mkdir /media/usb-drive
+mount /dev/sdc1 /media/usb-drive/
+
+
+Accessing USB Data:
+cd /media/usb-drive
+
+Unmount:
+umount /media/usb-drive
