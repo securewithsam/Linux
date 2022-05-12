@@ -1,0 +1,38 @@
+
+1.Switch back to the last working directory:
+cd -
+
+2.Go back to home directory
+cd ~ or cd
+
+3.List the contents of a directory
+ll
+
+4.Running multiple commands in one single command
+command_1; command_2; command_3
+
+You can use && separator for this case. && makes sure that the next command will only run when the previous command was successful.
+command_1 && command_2
+sudo apt update && sudo apt upgrade
+
+5.Easily search and use the commands that you had used in the past
+ctrl+r search_term
+
+6.Unfreeze your Linux terminal from accidental Ctrl+S ( habitual use of Ctrl+S for saving in Linux will freeze the terminal)
+ctrl+Q (to unfreeze)
+
+7.Move to beginning or end of line
+You can use Ctrl+A to go to the beginning of the line and Ctrl+E to go to the end. You can use Home and End keys here of course but alternatively.
+
+8.Delete entire line from cursor position
+Ctrl+U,  deletes everything from your current cursor position to the beginning of the line.
+Ctrl+K,  deletes everything from your cursor position to the end of the line.
+
+9.Reuse the previous command in present command with !!
+sudo !!
+
+10.copy paste.
+Ctrl+Shift+C for copy and Ctrl+Shift+V for paste
+
+11.Kill a running command/process
+Ctrl+C 
