@@ -1,0 +1,23 @@
+>Login as root
+sudo -i
+
+>Create SSH Keys (Public and Provate Keys)
+ssh-keygen 
+or
+ssh-keygen -t rsa -b 4096
+
+>Verify that the .ssh has been created 
+ls -la 
+cd .ssh
+ls
+[You will see id_rsa  id_rsa.pub]
+
+>To copy/download the Private Key : 
+cat id_rsa
+
+>To copy the Public Key to the desired server: 
+ssh-copy-id -i /root/.ssh/id_rsa.pub  user1@172.16.33.15              [Default SSH Port]
+ssh-copy-id -i /root/.ssh/id_rsa.pub -p 2022 user1@172.16.33.15       [Custom SSH Port 2022]
+
+
+
