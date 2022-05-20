@@ -1,2 +1,8 @@
 #To remove files and folders:
 sudo rm -rf *
+
+
+
+#To rename file:
+mv name1 name2
+
