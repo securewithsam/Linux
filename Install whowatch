@@ -1,0 +1,11 @@
+# The whowatch is a tool for monitoring users and processes via command line. It shows the currently logged in users and information about them such as login name, home directory, UUID, GID, and other. This tool enables to choose a particular user and view his processes tree.
+
+# Install whowatch
+sudo apt update 	
+sudo apt install -y whowatch
+whowatch
+
+
+
+# Uninstall whowatch
+sudo apt purge --autoremove -y whowatch
