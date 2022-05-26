@@ -1,0 +1,8 @@
+#To Check Current DNS cache size use the following command:
+
+sudo systemd-resolve --statistics
+
+
+# To clear DNS cache, use systemd-resolve command with flush-caches option.
+
+sudo systemd-resolve --flush-caches
