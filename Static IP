@@ -27,3 +27,23 @@ save and exit (ctrl o , ctrl x )
 sudo netplan apply
 sudo netplan generate
 sudo netplan --debug apply
+
+
+
+****************xxxxxxxxxxxxxx*************
+
+Configure a DHCP address with Netplan
+
+
+# This file describes the network interfaces available on your system
+# For more information, see netplan(5).
+network:
+ version: 2
+ renderer: networkd
+ ethernets:
+   ens3:
+     dhcp4: yes
+     dhcp6: no
+     
+     
+     
