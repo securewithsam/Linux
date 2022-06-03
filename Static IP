@@ -22,3 +22,8 @@ network:
 
 
 save and exit (ctrl o , ctrl x )
+
+
+sudo netplan apply
+sudo netplan generate
+sudo netplan --debug apply
