@@ -2,7 +2,27 @@ sudo -i
 sudo nano /etc/netplan/00-installer-config.yaml
 delete the current plan -use ctrl k to delete all lines and copy paste below :
 
+****************SINGLE NIC***********************
 
+
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    ens3:
+      dhcp4: no
+      addresses: [10.14.15.40/24]
+      gateway4: 10.14.15.1
+      nameservers:
+        addresses: [10.14.15.16,10.14.15.52]
+  version: 2
+  
+  
+  ********************XXXXXXXXXXXX************************
+  
+  
+  ****************DUAL NIC***********************
+  
+  
 # This is the network config written by 'subiquity'
 #One nic on static and other on DHCP
 
