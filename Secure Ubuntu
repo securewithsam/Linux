@@ -1,4 +1,7 @@
 1- Add a separate user with sudo access
+
+sudo apt-get update && sudo apt-get upgrade -y
+
 #sudo adduser sws
 Enter pwd
 
