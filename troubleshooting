@@ -1,1 +1,26 @@
 
+1.The mtr utility is a network diagnostic tool to troubleshoot the network bottlenecks. It combines the functionality of both ping and traceroute. 
+mtr google.com
+mtr -n --report google.com
+
+
+2.Get all DNS records 
+dig twiter.com ANY
+dig www.google.com A +short
+
+3.List all network interfaces
+sudo  tcpdump --list-interfaces
+sudo tcpdump -i any
+
+4.List open files
+lsof -i :8080
+
+5.List all listening ports
+ss -t -r state established
+ss -t -r state listening
+
+5.To troubleshoot web server connectivity 
+curl http://google.com -I
+
+6.If you want to limit ping 
+ping -c 1 google.com
