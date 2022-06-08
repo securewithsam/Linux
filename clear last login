@@ -1,0 +1,4 @@
+#To Clear Last Login 
+Delete files in 
+
+nano /var/log/auth.log 
