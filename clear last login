@@ -2,3 +2,13 @@
 Delete files in 
 
 nano /var/log/auth.log 
+
+
+
+
+nano /etc/ssh/sshd_config
+Find the line that says: #PrintLastLog yes
+And change it to:
+PrintLastLog no
+
+service ssh restart
