@@ -17,3 +17,6 @@ ctrl e [Jump to the end of the line]
 ctrl u [Deletes everything before your cursor]
 ctrl y [Pastes deleted content]
 ctrl k [Deletes everything after your cursor]
+
+#Jump to the last line in nano 
+Ctrl+ W and Ctrl+ V
