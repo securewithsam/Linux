@@ -1,0 +1,47 @@
+#How to get SLL on apache webserver after installing wordpress
+
+Create two  A Records in the DNS Management for the Domain pointing the VPS IP Address
+
+nano /etc/hosts (Add the below line)
+     127.0.0.1 foss55.xyz (replace with your domain)
+     ctrl o, ctrl x  (save it)
+
+hostnamectl set-hostname foss55.xyz
+sudo mkdir /var/www/newlifetoronto.ca
+sudo chown -R $USER:$USER /var/www/foss55.xyz
+sudo chmod -R 755 /var/www/foss55.xyz
+sudo nano /etc/apache2/sites-available/foss55.xyz.conf
+[copy paste below]
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName foss55.xyz
+    ServerAlias www.foss55.xyz
+    DocumentRoot /var/www/foss55.xyz
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+[save-ctrl o,ctrl x]
+
+
+sudo a2ensite newlifetoronto.ca.conf
+sudo a2dissite 000-default.conf
+sudo apache2ctl configtest
+sudo systemctl restart apache2
+sudo a2ensite newlifetoronto.ca.conf
+sudo a2dissite 000-default.conf
+sudo apache2ctl configtest
+sudo systemctl restart apache2
+sudo apt install certbot python3-certbot-apache
+sudo nano /etc/apache2/sites-available/newlifetoronto.ca.conf
+sudo ufw allow 'Apache Full'
+sudo ufw delete allow 'Apache'
+sudo certbot --apache
+
+Let’s Encrypt’s certificates are only valid for ninety days
+sudo systemctl status certbot.timer
+sudo certbot renew --dry-run
+
+
+https://foss55.xyz
