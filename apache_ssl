@@ -7,7 +7,7 @@ nano /etc/hosts (Add the below line)
      ctrl o, ctrl x  (save it)
 
 hostnamectl set-hostname foss55.xyz
-sudo mkdir /var/www/newlifetoronto.ca
+sudo mkdir /var/www/foss55.xyz
 sudo chown -R $USER:$USER /var/www/foss55.xyz
 sudo chmod -R 755 /var/www/foss55.xyz
 sudo nano /etc/apache2/sites-available/foss55.xyz.conf
@@ -25,16 +25,16 @@ sudo nano /etc/apache2/sites-available/foss55.xyz.conf
 [save-ctrl o,ctrl x]
 
 
-sudo a2ensite newlifetoronto.ca.conf
+sudo a2ensite foss55.xyz.conf
 sudo a2dissite 000-default.conf
 sudo apache2ctl configtest
 sudo systemctl restart apache2
-sudo a2ensite newlifetoronto.ca.conf
+sudo a2ensite foss55.xyz.conf
 sudo a2dissite 000-default.conf
 sudo apache2ctl configtest
 sudo systemctl restart apache2
 sudo apt install certbot python3-certbot-apache
-sudo nano /etc/apache2/sites-available/newlifetoronto.ca.conf
+sudo nano /etc/apache2/sites-available/foss55.xyz.conf
 sudo ufw allow 'Apache Full'
 sudo ufw delete allow 'Apache'
 sudo certbot --apache
