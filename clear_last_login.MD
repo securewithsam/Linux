@@ -7,13 +7,13 @@ sudo lastlog --clear --user root
 sudo lastlog -C -u root
 ```
 
-## Verify
+### Verify
 ```sh
 lastlog
 lastlog --user root
 ```
 
-## last and lastb use /var/log/wtmp and /var/log/btmp files to log information. You can use the following command to clear wtmp/btmp:
+### last and lastb use /var/log/wtmp and /var/log/btmp files to log information. You can use the following command to clear wtmp/btmp:
 ```sh
 >/var/log/wtmp
 ```
@@ -21,9 +21,9 @@ lastlog --user root
 >/var/log/btmp
 ```
 
-## Clear all last login information by deleting the /var/log/lastlog
+### Clear all last login information by deleting the /var/log/lastlog
 
-## make a backup of /var/log/lastlog [USE THIS ONLY IF YOU NEED BACKUP]
+### make a backup of /var/log/lastlog [USE THIS ONLY IF YOU NEED BACKUP]
 ```sh
 cp /var/log/lastlog /root
 ```
@@ -35,4 +35,4 @@ cp /var/log/lastlog /root
 cat > /var/log/lastlog
 ```
 
-Press CTR+D to save the changes.
+### Press CTR+D to save the changes.
