@@ -7,10 +7,13 @@ netstat -in
 ```
 
 
-Restart network service in HPUX:
-
+## Restart network service in HPUX:
+```sh
 /sbin/init.d/net stop
 /sbin/init.d/net start
+```
 
-Reboot HPUX
+## Reboot HPUX
+```sh
 shutdown -r now
+```
