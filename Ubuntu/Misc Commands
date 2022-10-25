@@ -6,3 +6,6 @@ sudo rm -rf *
 #To rename file:
 mv name1 name2
 
+
+To find IP
+ ip -br addr
