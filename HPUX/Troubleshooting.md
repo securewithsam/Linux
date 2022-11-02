@@ -43,7 +43,12 @@ vi /etc/syslog.conf
 ```sh
 vi /etc/snmpd.conf
 ```
-At the end of the file add trap-dest: 172.16.xx.xx
+### Modeify trap-dest: IP & comminity string
+```sh
+trap-dest: 172.16.xx.xx
+get-community-name: EnCastR!ng
+```
+
 
 
 
