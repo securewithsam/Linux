@@ -39,6 +39,11 @@ vi /etc/syslog.conf
 /sbin/init.d/syslogd stop
 /sbin/init.d/syslogd start
 ```
+## To check SNMP config
+```sh
+vi /etc/snmpd.conf
+```
+At the end of the file add trap-dest: 172.16.xx.xx
 
 
 
