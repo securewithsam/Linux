@@ -43,7 +43,7 @@ vi /etc/syslog.conf
 ```sh
 vi /etc/snmpd.conf
 ```
-### Modeify trap-dest: IP & comminity string
+### Modify trap-dest: IP & comminity string
 ```sh
 trap-dest: 172.16.xx.xx
 get-community-name: EnCastR!ng
