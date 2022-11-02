@@ -17,3 +17,11 @@ netstat -in
 ```sh
 shutdown -r now
 ```
+## To check Duplex Status
+```sh
+lanadmin -x 0
+```
+## To check interface status with mac-address
+```sh
+lanscan
+```
