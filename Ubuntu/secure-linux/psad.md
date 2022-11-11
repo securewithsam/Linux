@@ -2,9 +2,15 @@
 
 ```sh
 sudo apt-get update && sudo apt-get upgrade -y
+```
+```sh
 sudo apt install psad
+```
+```sh
 sudo iptables -A INPUT -j LOG
 sudo iptables -A FORWARD -j LOG 
+```
+```sh
 sudo iptables -L
 ```
 ```sh
