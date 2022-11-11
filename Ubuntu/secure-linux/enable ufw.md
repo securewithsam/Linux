@@ -1,3 +1,4 @@
+```sh
 sudo ufw status
 sudo ufw status numbered
 sudo ufw status verbose
@@ -21,3 +22,4 @@ sudo ufw delete deny 23/tcp
 sudo ufw disable
 sudo ufw enable
 sudo ufw reset
+```
