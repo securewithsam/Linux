@@ -28,8 +28,8 @@ sudo netstat -ulpnt
 
 ### Use IDS -SNORT
 ```sh
-wget https://www.snort.org/downloads/snort/daq-2.0.6.tar.gz
-wget https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz
+wget https://www.snort.org/downloads/snort/daq-2.0.7.tar.gz
+wget https://www.snort.org/downloads/snort/snort-2.9.20.tar.gz
 tar xvzf daq-2.0.6.tar.gz
 cd daq-2.0.6
 ./configure && make && sudo make install
