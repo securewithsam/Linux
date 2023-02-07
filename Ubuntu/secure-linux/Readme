@@ -1,0 +1,7 @@
+Change SSH Port
+Disable IPv6
+Disabling UseRoaming
+Enable PSAD(Port Scan Attack Detection)
+Enable UFW
+Install & Configure Fail2ban
+Add user and Disable root Login
