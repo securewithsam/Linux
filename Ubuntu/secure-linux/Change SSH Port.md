@@ -1,7 +1,7 @@
 #### Change SSH Port
 
 ```sh
-grep -i port /etc/ssh/sshd_config (To check current port)
+grep -i port /etc/ssh/sshd_config
 ```
 
 ```sh
