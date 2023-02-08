@@ -1,3 +1,7 @@
+First Check active outbound connections
+netstat -nputw
+
+
 Change SSH Port
 Disable IPv6
 Disabling UseRoaming
