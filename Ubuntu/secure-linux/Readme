@@ -1,5 +1,5 @@
 First Check active outbound connections
-netstat -nputw
+netstat -nputw -c
 
 
 Change SSH Port
