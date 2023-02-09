@@ -72,4 +72,31 @@ nano /etc/fstab file
 /dev/md0   /mnt/raid1 xfs  defaults   0 0
 ```
 
+### Configure Email Alerts
+```sh
+mdadm --detail --scan >> /etc/mdadm.conf
+```
+#### Install postfix
+```sh
+yum install postfix
+```
+
+#### Add hostname, relay details to postfix configuration file
+```sh
+vim /etc/postfix/main.cf
+```
+#### Edit myhostname=bpp-infchrn-01 and mydomain=Enercare.corp, relay=[relay1.enercare.corp]:25
+
+```sh
+sudo systemctl restart postfix
+systemctl status postfix
+```
+
+#### Install Mailx and send test email:
+```sh
+yum install mailx
+```
+```sh
+echo "this is a test email" | mailx -r bpp-jmp-01@fossdom.com -s hello foss.dom@fossdom.com
+```
 
