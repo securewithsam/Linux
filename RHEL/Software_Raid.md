@@ -1,6 +1,6 @@
 ### Configure Software RAID on RHEL 
 
-####* Make sure the machine has internet access
+####*Make sure the machine has internet access
 ```sh
 ping 8.8.8.8
 ```
