@@ -85,7 +85,7 @@ yum install postfix
 ```sh
 vim /etc/postfix/main.cf
 ```
-#### Edit myhostname=bpp-infchrn-01 and mydomain=Enercare.corp, relay=[relay1.enercare.corp]:25
+#### Edit myhostname=bpp-foss-01 and mydomain=foss.corp, relay=[relay10.foss.corp]:25
 
 ```sh
 sudo systemctl restart postfix
