@@ -1,11 +1,10 @@
 ### Configure Software RAID on RHEL 
 
-#### *Make sure the machine has internet access
+####*Make sure the machine has internet access
 ```sh
 ping 8.8.8.8
 ```
-#### *
-Register with subscription manager and assign a subscription to the machine
+####*Register with subscription manager and assign a subscription to the machine
 
 ```sh
 subscription-manager register
