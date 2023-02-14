@@ -12,4 +12,4 @@ sudo systemctl enable --now cockpit.socket
 ```sh
 sudo firewall-cmd --add-service=cockpit --permanent
 sudo firewall-cmd --reload
-sh
+```
