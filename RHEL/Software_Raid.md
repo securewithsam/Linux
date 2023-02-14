@@ -18,64 +18,50 @@ subscription-manager refresh
 ```sh
 subscription-manager list --available --all
 ```
+
+#### Add the machine to domain:
+```sh
+yum install realmd oddjob oddjob-mkhomedir sssd adcli krb5-workstation
+realm discover enercare.corp
+realm join --user=adm-sudk enercare.corp
+realm list (to verify the list of domains)
+cat /etc/sssd/sssd.conf (verify AD configuration)
+```
+
 #### Run the following command to install mdadm which is the utility to create software RAID
 ```sh
 sudo yum install mdadm
 ```
-#### Create partition on NVMe with parted:
+#### Create a RAID 
+##### [ In this example , we have 4 drives configured with Raid 5 , make sure to update the "devices = 4" and add accordingly ]
 ```sh
-parted
+sudo mdadm --create /dev/md0 --level=5 --raid-devices=4 /dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1 
 ```
+
+#### Example 2: Raid with 6 drives
 ```sh
-select /dev/nvme0n1
+sudo mdadm --create /dev/md0 --level=5 --raid-devices=6 /dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 /dev/nvme3n1 /dev/nvme4n1 /dev/nvme5n1 
 ```
-```sh
-mklabel gpt
-```
-```sh
-quit
-```
-#### Create partition on nvme 1 with fdisk and repeat steps for nvme 2 and 3
-```sh
-sudo fdisk /dev/nvme0n1
-```
-```sh
-Command (m for help): n
-Command (m for help): p
-```
-#### Examine using mdadm
-```sh
-sudo mdadm --examine /dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1
-```
-#### Create a RAID
-```sh
-sudo mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/nvme0n1 /dev/nvme1n1 /dev/nvme2n1 
-```
+
 #### Check status of raid
 ```sh
 mdadm --detail /dev/md0
 ```
-#### Create xfs file system on raid drive:
+#### Scan Raid
+
 ```sh
-mkfs -t xfs /dev/md0
-```
-#### Create a mount point for RAID drive and mount it:
-```sh
-mkdir /mnt/raid5
-mount /dev/md0 /mnt/raid5
-```
-#### If you want that RHEL mounts the md0 RAID device automatically when the system boots, add an entry for your device to the
-```sh
-nano /etc/fstab file
-```
-```sh
-/dev/md0   /mnt/raid1 xfs  defaults   0 0
+mdadm --detail --scan >> /etc/mdadm.conf
 ```
 
 ### Configure Email Alerts
 ```sh
-mdadm --detail --scan >> /etc/mdadm.conf
+nano /etc/mdadm.conf 
 ```
+### Add the line below and save 
+```sh
+MAILADDR firstname.lastname@enercare.ca
+```
+
 #### Install postfix
 ```sh
 yum install postfix
