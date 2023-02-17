@@ -7,7 +7,7 @@ sudo yum install net-snmp
 sudo service snmpd stop
 ```
 ```sh
-sudo net-snmp-create-v3-user -ro -A ecmppinfchrn -a SHA -X myencryptionkey -x AES enercaresnmp
+sudo net-snmp-create-v3-user -ro -A ecchrnsnmpuser -a SHA -X ecchrnsnmpuser -x AES ecchrnsnmpuser
 ```
 ```sh
 yum install net-snmp-utils -y
@@ -15,8 +15,9 @@ yum install net-snmp-utils -y
 ```sh
 sudo service snmpd start
 ```
+#### Test
 ```sh
-snmpwalk -u enercaresnmp -A ecmppinfchrn -a SHA -X myencryptionkey -x AES -l authPriv 127.0.0.1 -v3
+snmpwalk -u ecchrnsnmpuser -A ecchrnsnmpuser -a SHA -X ecchrnsnmpuser -x AES -l authPriv 127.0.0.1 -v3
 ```
 
 
