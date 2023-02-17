@@ -18,3 +18,9 @@ sudo service snmpd start
 ```sh
 snmpwalk -u enercaresnmp -A ecmppinfchrn -a SHA -X myencryptionkey -x AES -l authPriv 127.0.0.1 -v3
 ```
+
+
+#### File Path
+```sh
+nano /etc/snmp/snmpd.conf
+```
