@@ -25,3 +25,18 @@ snmpwalk -u rhelsnmpuser -A rhelsnmpuser -a SHA -X rhelsnmpuser -x AES -l authPr
 ```sh
 nano /etc/snmp/snmpd.conf
 ```
+```sh
+
+dnf install net-snmp
+systemctl enable snmpd
+systemctl start snmpd
+systemctl status snmpd -l
+dnf install net-snmp-utils
+service snmpd restart
+snmpwalk -v 2c -c public -O e 127.0.0.1
+
+
+rocommunity public
+syslocation MC-Cyxtera-DC
+syscontact foss@gmail.com
+```
