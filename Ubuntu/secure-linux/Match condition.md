@@ -20,6 +20,10 @@ Match Address 192.168.21.4
         PermitRootLogin yes
 ```
 
+```sh
+sudo sshd -T
+sudo systemctl reload ssh
+```
 ##### You can setup multiple IP address/CIDR as follows:
 ```sh
 PermitRootLogin no
