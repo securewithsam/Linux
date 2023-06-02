@@ -1,7 +1,7 @@
 >Login as root
 sudo -i
 
->Create SSH Keys (Public and Provate Keys)
+>Create SSH Keys (Public and Private Keys)
 ssh-keygen 
 or
 ssh-keygen -t rsa -b 4096
