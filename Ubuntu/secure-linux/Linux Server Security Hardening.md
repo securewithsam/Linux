@@ -52,6 +52,9 @@ sudo apt-get clean
 ```sh
 apt install chkrootkit
 sudo chkrootkit
+sudo chkrootkit | grep INFECTED
+
+sudo apt purge --autoremove -y chkrootkit
 ```
 
 ```sh
