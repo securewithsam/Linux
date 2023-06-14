@@ -9,5 +9,8 @@ System hardening
 
 
 ```sh
-yum install lynis
+sudo yum install lynis
+```
+```sh
+sudo lynis audit system
 ```
