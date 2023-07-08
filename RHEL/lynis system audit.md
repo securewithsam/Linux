@@ -14,3 +14,12 @@ sudo yum install lynis
 ```sh
 sudo lynis audit system
 ```
+
+
+#### Audit linux without installing Lynis
+```sh
+ git clone https://github.com/CISOfy/lynis
+```
+```sh
+ cd lynis && ./lynis audit system
+```
