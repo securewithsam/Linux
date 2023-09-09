@@ -1,0 +1,5 @@
+```sh
+subscription-manager repos --enable=rhel-8-for-$(uname -m)-baseos-debug-rpms --enable=rhel-8-for-$(uname -m)-appstream-debug-rpms
+yum install kernel-debuginfo-$(uname -r) kernel-debuginfo-common-$(uname -m)-$(uname -r)
+dnf install -y kernel-devel-$(uname -r)
+```
