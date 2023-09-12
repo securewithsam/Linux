@@ -21,4 +21,4 @@ systemctl restart sshd
 
 #### Connect 
 
-ssh root@<IPAddress> -p <NewPort>
+ssh root@10.22.22.xx -p <NewPort>
