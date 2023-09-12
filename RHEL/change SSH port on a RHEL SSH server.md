@@ -18,3 +18,7 @@ firewall-cmd --reload
 ```sh
 systemctl restart sshd
 ```
+
+#### Connect 
+
+ssh root@<IPAddress> -p <NewPort>
