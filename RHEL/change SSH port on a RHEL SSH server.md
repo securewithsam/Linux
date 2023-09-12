@@ -4,9 +4,6 @@
 sed -i 's/#Port 22/Port 2022/g' /etc/ssh/sshd_config
 ```
 ```sh
-systemctl restart sshd
-```
-```sh
 semanage port -a -t ssh_port_t -p tcp 2022
 ```
 ```sh
