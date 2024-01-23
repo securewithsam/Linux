@@ -10,7 +10,7 @@ visudo
 
 
 ```sh
-_Allow root to run any commands anywhere_
+Allow root to run any commands anywhere
 root    ALL=(ALL)       ALL
 
 user1 ALL=(ALL)      ALL
