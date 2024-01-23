@@ -5,9 +5,7 @@ visudo
 
 
 
-#### Add the line
-
-Allow root to run any commands anywhere
+#### Add the line under  _Allow root to run any commands anywhere_
 root    ALL=(ALL)       ALL
 
 
