@@ -12,6 +12,7 @@ systemctl restart rsyslog
 ```
 
 #### Sending audit logs to SYSLOG server using audisp , its a aprt of Audit Package
+https://access.redhat.com/solutions/28676
 
 ```sh
 nano /etc/audisp/plugins.d/syslog.conf
