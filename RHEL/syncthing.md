@@ -1,5 +1,5 @@
-#### How to install Syncthing on RHEL whihc doesnt support have official yum repository and can still be installed via official source code
-
+#### How to install Syncthing on RHEL which doesnt support have official yum repository and can still be installed via official source code
+#### Run as non-root user
 
 ```sh
 yum update -y
