@@ -1,7 +1,10 @@
+#### How to install Syncthing on RHEL whihc doesnt support have official yum repository and can still be installed via official source code
+
 
 ```sh
 yum update -y
 ```
+#### https://syncthing.net/downloads/
 ```sh
 wget https://github.com/syncthing/syncthing/releases/download/v1.27.6/syncthing-linux-amd64-v1.27.6.tar.gz
 ```
