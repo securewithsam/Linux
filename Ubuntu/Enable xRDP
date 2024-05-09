@@ -8,8 +8,9 @@ chsh -s /bin/bash sws
 
 
 # Install XRDP:
-
+```sh
 apt-get install xrdp
-#service xrdp start
-# service xrdp-sesman start
-# update-rc.d xrdp enable  
+service xrdp start
+service xrdp-sesman start
+update-rc.d xrdp enable  
+```
