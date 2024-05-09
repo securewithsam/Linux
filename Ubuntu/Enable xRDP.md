@@ -1,10 +1,12 @@
-Installing  xrdp   (cannot rdp with root , so create user sws with sudo access)
+#### Installing  xrdp   (cannot rdp with root , so create user sws with sudo access)
 
+```sh
 adduser sws
 usermod -a -G sudo sws
 chsh -s /bin/bash sws
-#cat /etc/passwd
-#cat /etc/group
+cat /etc/passwd
+cat /etc/group
+```
 
 
 # Install XRDP:
