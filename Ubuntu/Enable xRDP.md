@@ -11,7 +11,7 @@ cat /etc/group
 
 # Install XRDP:
 ```sh
-apt-get install xrdp
+apt-get install xrdp -y
 service xrdp start
 service xrdp-sesman start
 update-rc.d xrdp enable  
