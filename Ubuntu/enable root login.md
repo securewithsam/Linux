@@ -13,3 +13,6 @@ FROM:
 TO:
 PermitRootLogin yes
 ```
+```sh
+sudo systemctl restart ssh
+```
