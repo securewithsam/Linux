@@ -1,5 +1,5 @@
 **Use case**: 
-< br / >Create a new user called rsync on RHEL 8< br / >
+Create a new user called rsync on RHEL 8   
 Set up SSH key-based login between the source and destination machines via port 2222:
 Grant sudo rights for 'rsync' user:
 Install rsync:
