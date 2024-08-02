@@ -1,4 +1,14 @@
-To configure the SSH connection on port 2022, you'll need to adjust the SSH commands and configuration steps accordingly. Here’s an updated version of the steps:
+**Use case**: 
+Create a new user called rsync on RHEL 8:
+Set up SSH key-based login between the source and destination machines via port 2222:
+Grant sudo rights for 'rsync' user:
+Install rsync:
+configure rsync using the newly created rsync user to sync data from 10.10.10.1  to  172.16.16.2 for the paths below on both identical machines and same paths for both servers:
+
+/root
+/var/lib/docker/volumes/kcm_common-storage/_data/recordings  
+/etc/kcm-setup/
+
 
 ### Step 1: Create a New User Called `rsync` on Both Servers with SSH Key-Based Login and No Password
 
