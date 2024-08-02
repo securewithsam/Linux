@@ -62,7 +62,7 @@
 
 1. **Copy the `rsync` user’s SSH key from the source machine to the destination machine**:
     ```bash
-    sudo ssh-copy-id -i /home/rsync/.ssh/id_rsa.pub -p 2022 rsync@172.16.16.2
+    sudo ssh-copy-id -i /home/rsync/.ssh/id_rsa.pub -p 2222 rsync@172.16.16.2
     ```
 
 ### Step 3: Grant Sudo Rights
@@ -107,7 +107,7 @@
     DESTINATION_PATHS=("/var/lib/docker/volumes/kcm_common-storage/_data/recordings" "/etc/kcm-setup/")
 
     for i in ${!SOURCE_PATHS[@]}; do
-        rsync -avz -e "ssh -p 2022" ${SOURCE_PATHS[$i]} $DESTINATION:${DESTINATION_PATHS[$i]}
+        rsync -avz -e "ssh -p 2222" ${SOURCE_PATHS[$i]} $DESTINATION:${DESTINATION_PATHS[$i]}
     done
     ```
 
@@ -145,4 +145,4 @@
     0 2 * * * /home/rsync/rsync_backup.sh
     ```
 
-This completes the setup for the `rsync` user with SSH key-based login, sudo rights, and an `rsync` configuration to sync data between the two servers using port 2022.
+This completes the setup for the `rsync` user with SSH key-based login, sudo rights, and an `rsync` configuration to sync data between the two servers using port 2222.
