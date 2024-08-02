@@ -3,7 +3,7 @@
 * Set up SSH key-based login between the source and destination machines via port 2222   
 * Grant sudo rights for 'rsync' user   
 * Install rsync   
-* Configure rsync using the newly created rsync user to sync data from 10.10.10.1  to  172.16.16.2 for the paths below on both identical machines and same paths for both servers   
+* Configure rsync using the newly created  user 'rsync' to sync data from 10.10.10.1  to  172.16.16.2 for the paths below on both identical machines and same paths for both servers   
 ```sh
 /root
 /var/lib/docker/volumes/kcm_common-storage/_data/recordings  
