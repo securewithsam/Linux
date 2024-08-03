@@ -103,8 +103,8 @@
 
     RSYNC_USER="rsync"
     DESTINATION="rsync@172.16.16.2"
-    SOURCE_PATHS=("/var/lib/docker/volumes/kcm_common-storage/_data/recordings" "/etc/kcm-setup/")
-    DESTINATION_PATHS=("/var/lib/docker/volumes/kcm_common-storage/_data/recordings" "/etc/kcm-setup/")
+    SOURCE_PATHS=("/var/lib/docker/volumes/kcm_common-storage/_data/recordings" "/etc/kcm-setup/" "/root")
+    DESTINATION_PATHS=("/var/lib/docker/volumes/kcm_common-storage/_data/recordings" "/etc/kcm-setup/" "/root")
 
     for i in ${!SOURCE_PATHS[@]}; do
         rsync -avz -e "ssh -p 2222" ${SOURCE_PATHS[$i]} $DESTINATION:${DESTINATION_PATHS[$i]}
@@ -124,6 +124,7 @@
     sudo mkdir -p /etc/kcm-setup/
     sudo chown -R rsync:rsync /var/lib/docker/volumes/kcm_common-storage/_data/recordings
     sudo chown -R rsync:rsync /etc/kcm-setup/
+    sudo chown -R rsync:rsync /root/
     ```
 
 ### Step 6: Test and Automate the `rsync` Script
