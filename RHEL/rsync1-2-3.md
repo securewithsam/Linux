@@ -1,3 +1,15 @@
+**Use case**:  
+* Create a new user called rsync on RHEL 8   
+* Set up SSH key-based login between the source and destination machines via port 2222   
+* Grant sudo rights for 'rsync' user   
+* Install rsync   
+* Configure rsync using the newly created  user 'rsync' to sync data from 10.45.90.62 to 172.17.10.61 and 10.45.90.73 for the paths below on both identical machines and same paths for both servers   
+```sh
+/root
+/var/lib/docker/volumes/kcm_common-storage/_data/recordings  
+/etc/kcm-setup/
+```
+
 To set up an `rsync` user on RHEL 8, configure SSH key-based login, grant sudo rights, install `rsync`, and configure the data sync between the source and destination machines, follow the steps below:
 
 ### Step 1: Create the `rsync` User
