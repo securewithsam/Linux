@@ -1,8 +1,7 @@
-To harden a **RHEL 9 VM in Azure** for a **developer user (saurabh)** while allowing limited sudo privileges, preventing root password changes, disabling reauthentication for sudo during the session, and adding a sandbox banner, follow these steps:
+
 
 ---
 
-### ✅ **Step-by-step Hardened Setup for `saurabh`**
 
 #### 1. **Create the user and set a secure password**
 
