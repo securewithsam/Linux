@@ -1,22 +1,4 @@
-Thanks for pasting the full error — this shows what’s missing 👇
 
-When you tried:
-
-```bash
-yum install pfring-dkms n2disk nprobe ntopng cento ntap
-```
-
-RHEL 9.6 reported **“nothing provides …”** errors. That means the ntop repo expects some packages (dkms, hiredis, zeromq, libsodium, radcli, tcp_wrappers-libs) that aren’t installed from the base/CRB/EPEL repos.
-
----
-
-### 🔍 Root cause
-
-* **`pfring-dkms`** requires `dkms ≥ 1.95`, which is only in **EPEL**.
-* **`nprobe`, `n2disk`, `ntopng`, `cento`** require **`hiredis`, `zeromq`, `libsodium`, `radcli`, `tcp_wrappers-libs`**, which come from **EPEL/CodeReady Builder**.
-* On a fresh **RHEL 9.6**, those packages aren’t enabled unless you add the right repos.
-
----
 
 ### ✅ Fix: Enable missing repos + install dependencies
 
