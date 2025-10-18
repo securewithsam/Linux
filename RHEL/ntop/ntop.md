@@ -1,4 +1,6 @@
-
+```sh
+ip -br link
+```
 ```sh
 curl https://packages.ntop.org/centos-stable/ntop.repo > /etc/yum.repos.d/ntop.repo
 ```
@@ -6,7 +8,7 @@ curl https://packages.ntop.org/centos-stable/ntop.repo > /etc/yum.repos.d/ntop.r
 yum install epel-release
 ```
 ```sh
-rpm -ivh http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+rpm -ivh http://rpms.remirepo.net/enterprise/remi-release-9.rpm
 ```
 ```sh
 yum install dnf-plugins-core
@@ -15,7 +17,7 @@ yum install dnf-plugins-core
 dnf config-manager --set-enabled PowerTools
 ```
 ```sh
-sudo subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+sudo subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 ```
 ```sh
 dnf config-manager --set-enabled remi
