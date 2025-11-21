@@ -18,3 +18,7 @@ apt-get update
 ```sh
 ntop-installer
 ```
+
+#### Install Click House
+
+https://clickhouse.com/docs/install#install-from-deb-packages
