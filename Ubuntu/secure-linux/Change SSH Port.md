@@ -9,6 +9,8 @@ nano /etc/ssh/sshd_config
 ```
 ```sh
 systemctl restart sshd
+sudo systemctl restart ssh
+
 ```
 ```sh
 netstat -tulpn | grep ssh
