@@ -1,0 +1,205 @@
+###########################################
+# CIS Ubuntu 24.04 LTS - SAFE EXCLUSION LIST
+# Version: 1.0 | For production/enterprise use
+#
+# STRATEGY: Exclude controls that break usability
+# while keeping all controls that provide real
+# security value without side effects.
+#
+# Categories excluded:
+#  [PARTITION] - Requires pre-built disk layout
+#  [WEBSERVER] - Breaks web apps (nginx/apache/etc)
+#  [PAM-RISK]  - Can lock out all users incl console
+#  [PWD-RISK]  - Changes passwords, locks accounts
+#  [BOOTLOCK]  - Locks bootloader, breaks recovery
+#  [SQUASHFS]  - Required by snapd and many Ubuntu tools
+#  [OVERLAY]   - Required by Docker/containers
+#  [REMOTE-LOG]- Requires remote syslog infra
+###########################################
+
+# -----------------------------------------------
+# 1.1.2 - PARTITION CHECKS
+# Vanilla installs use a single partition.
+# These checks WILL FAIL and CIS kit may attempt
+# to remount with flags that break the system.
+# -----------------------------------------------
+1.1.2.1.1  # [PARTITION] /tmp is a separate partition
+1.1.2.1.2  # [PARTITION] nodev on /tmp - no separate /tmp
+1.1.2.1.3  # [PARTITION] nosuid on /tmp - no separate /tmp
+1.1.2.1.4  # [PARTITION] noexec on /tmp - no separate /tmp
+1.1.2.2.1  # [PARTITION] /dev/shm is a separate partition
+1.1.2.3.1  # [PARTITION] separate partition for /home
+1.1.2.3.2  # [PARTITION] nodev on /home - no separate /home
+1.1.2.3.3  # [PARTITION] nosuid on /home - no separate /home
+1.1.2.4.1  # [PARTITION] separate partition for /var
+1.1.2.4.2  # [PARTITION] nodev on /var - no separate /var
+1.1.2.4.3  # [PARTITION] nosuid on /var - no separate /var
+1.1.2.5.1  # [PARTITION] separate partition for /var/tmp
+1.1.2.5.2  # [PARTITION] nodev on /var/tmp - no separate
+1.1.2.5.3  # [PARTITION] nosuid on /var/tmp - no separate
+1.1.2.5.4  # [PARTITION] noexec on /var/tmp - no separate
+1.1.2.6.1  # [PARTITION] separate partition for /var/log
+1.1.2.6.2  # [PARTITION] nodev on /var/log - no separate
+1.1.2.6.3  # [PARTITION] nosuid on /var/log - no separate
+1.1.2.6.4  # [PARTITION] noexec on /var/log - no separate
+1.1.2.7.1  # [PARTITION] separate partition for /var/log/audit
+1.1.2.7.2  # [PARTITION] nodev on /var/log/audit - no separate
+1.1.2.7.3  # [PARTITION] nosuid on /var/log/audit - no separate
+1.1.2.7.4  # [PARTITION] noexec on /var/log/audit - no separate
+
+# -----------------------------------------------
+# 1.1.1.6 / 1.1.1.7 - KERNEL MODULES
+# overlayfs: required by Docker, LXC, snap
+# squashfs: required by snap (Ubuntu snaps use it)
+# udf: required to read ISO/DVD media
+# -----------------------------------------------
+1.1.1.6    # [OVERLAY]  overlayfs - needed by Docker/snap
+1.1.1.7    # [SQUASHFS] squashfs - needed by snapd
+1.1.1.8    # [MEDIA]    udf - needed for ISO/optical media
+
+# -----------------------------------------------
+# 1.4 - BOOTLOADER PASSWORD
+# Breaks recovery mode. Very dangerous on VMs.
+# Physical security is handled at hypervisor level.
+# -----------------------------------------------
+1.4.1      # [BOOTLOCK] bootloader password - breaks recovery
+1.4.2      # [BOOTLOCK] bootloader config access
+
+# -----------------------------------------------
+# 1.7 - GDM (Desktop Login Manager)
+# Server installs don't have GDM. These checks
+# are N/A and may error if GDM is not installed.
+# -----------------------------------------------
+1.7.1      # [DESKTOP] GDM removed check
+1.7.2      # [DESKTOP] GDM login banner
+1.7.3      # [DESKTOP] GDM disable-user-list
+1.7.4      # [DESKTOP] GDM screen lock idle
+1.7.5      # [DESKTOP] GDM screen lock override
+1.7.6      # [DESKTOP] GDM removable media
+1.7.7      # [DESKTOP] GDM removable media override
+1.7.8      # [DESKTOP] GDM autorun-never
+1.7.9      # [DESKTOP] GDM autorun-never override
+1.7.10     # [DESKTOP] XDMCP not enabled
+
+# -----------------------------------------------
+# 2.1.18 - WEB SERVER
+# CIS recommends removing nginx/apache entirely.
+# You said web apps must keep running — exclude this.
+# -----------------------------------------------
+2.1.18     # [WEBSERVER] web server services not in use
+
+# -----------------------------------------------
+# 2.1.13 - RSYNC
+# Rsync is commonly used for backups and deployment.
+# Exclude if you use rsync. Remove exclusion if not.
+# -----------------------------------------------
+2.1.13     # [RSYNC] rsync services - exclude if used for backups
+
+# -----------------------------------------------
+# 2.1.22 - APPROVED SERVICES CHECK
+# This is a MANUAL check that requires human review
+# of every listening port. Script cannot auto-fix.
+# -----------------------------------------------
+2.1.22     # [MANUAL] only approved services listening
+
+# -----------------------------------------------
+# 3.1.1 - IPv6 STATUS
+# This is an informational/audit-only check.
+# No remediation but causes script warnings.
+# -----------------------------------------------
+3.1.1      # [INFO] IPv6 status identified (informational)
+
+# -----------------------------------------------
+# 4.3 / 4.4 - NFTABLES / IPTABLES
+# We are using UFW (4.2.x). CIS requires choosing
+# ONE firewall. Exclude nftables and iptables
+# sections entirely to avoid conflicts.
+# -----------------------------------------------
+4.3.1      # [FW-CONFLICT] nftables installed (using UFW)
+4.3.2      # [FW-CONFLICT] ufw disabled with nftables
+4.3.3      # [FW-CONFLICT] iptables flushed with nftables
+4.3.4      # [FW-CONFLICT] nftables table exists
+4.3.5      # [FW-CONFLICT] nftables base chains
+4.3.6      # [FW-CONFLICT] nftables loopback
+4.3.7      # [FW-CONFLICT] nftables outbound
+4.3.8      # [FW-CONFLICT] nftables default deny
+4.3.9      # [FW-CONFLICT] nftables service enabled
+4.3.10     # [FW-CONFLICT] nftables rules permanent
+4.4.1.1    # [FW-CONFLICT] iptables packages
+4.4.1.2    # [FW-CONFLICT] nftables not with iptables
+4.4.1.3    # [FW-CONFLICT] ufw not with iptables
+4.4.2.1    # [FW-CONFLICT] iptables default deny
+4.4.2.2    # [FW-CONFLICT] iptables loopback
+4.4.2.3    # [FW-CONFLICT] iptables outbound
+4.4.2.4    # [FW-CONFLICT] iptables open ports
+4.4.3.1    # [FW-CONFLICT] ip6tables default deny
+4.4.3.2    # [FW-CONFLICT] ip6tables loopback
+4.4.3.3    # [FW-CONFLICT] ip6tables outbound
+4.4.3.4    # [FW-CONFLICT] ip6tables open ports
+
+# -----------------------------------------------
+# 5.3.3 - PASSWORD QUALITY / PAM LOCKOUT
+# These change PAM config aggressively and are the
+# #1 cause of lockouts on vanilla installs.
+# Password complexity and lockout via PAM is risky
+# without careful pre-configuration. Use fail2ban
+# instead for brute force protection.
+# -----------------------------------------------
+5.3.2.2    # [PAM-RISK] pam_faillock module - causes lockouts
+5.3.2.3    # [PAM-RISK] pam_pwquality - aggressive complexity
+5.3.2.4    # [PAM-RISK] pam_pwhistory - history enforcement
+5.3.3.1.1  # [PAM-RISK] password failed attempts lockout
+5.3.3.1.2  # [PAM-RISK] password unlock time
+5.3.3.1.3  # [PAM-RISK] lockout includes root (VERY DANGEROUS)
+5.3.3.2.1  # [PWD-RISK] password changed characters count
+5.3.3.2.2  # [PWD-RISK] minimum password length enforcement
+5.3.3.2.3  # [PWD-RISK] password complexity enforcement
+5.3.3.2.4  # [PWD-RISK] consecutive characters
+5.3.3.2.5  # [PWD-RISK] sequential characters
+5.3.3.2.6  # [PWD-RISK] dictionary check
+5.3.3.2.7  # [PWD-RISK] quality checking enforced
+5.3.3.2.8  # [PWD-RISK] quality enforced for root
+5.3.3.3.1  # [PWD-RISK] password history remember
+5.3.3.3.2  # [PWD-RISK] history enforced for root
+5.3.3.3.3  # [PWD-RISK] pam_pwhistory use_authtok
+
+# -----------------------------------------------
+# 5.4.1 - PASSWORD EXPIRY
+# Enforcing expiry on existing accounts will lock
+# users out at next login. Do NOT change without
+# a planned rollout to all users first.
+# -----------------------------------------------
+5.4.1.1    # [PWD-RISK] password expiration configured
+5.4.1.2    # [PWD-RISK] minimum password days
+5.4.1.3    # [PWD-RISK] password expiration warning days
+5.4.1.5    # [PWD-RISK] inactive password lock
+
+# -----------------------------------------------
+# 5.4.2.8 - LOCK ACCOUNTS WITHOUT LOGIN SHELL
+# Can lock service accounts used by web apps,
+# databases, and other services causing them to fail.
+# -----------------------------------------------
+5.4.2.8    # [SERVICE-RISK] lock accounts without login shell
+
+# -----------------------------------------------
+# 6.1.2.1 - REMOTE JOURNAL (systemd-journal-remote)
+# Requires a remote logging server to be configured.
+# Will fail on standalone systems.
+# -----------------------------------------------
+6.1.2.1.1  # [REMOTE-LOG] systemd-journal-remote installed
+6.1.2.1.2  # [REMOTE-LOG] journal-upload auth configured
+6.1.2.1.3  # [REMOTE-LOG] journal-upload enabled
+6.1.2.1.4  # [REMOTE-LOG] journal-remote not in use (conflict)
+
+# -----------------------------------------------
+# 6.1.3.6 - REMOTE SYSLOG
+# Requires a remote syslog server. Will error without one.
+# -----------------------------------------------
+6.1.3.6    # [REMOTE-LOG] rsyslog send to remote host
+
+# -----------------------------------------------
+# 6.2.2.3 - DISABLE SYSTEM WHEN AUDIT LOGS FULL
+# This will SHUTDOWN the server if audit log fills.
+# Extremely dangerous in production.
+# -----------------------------------------------
+6.2.2.3    # [DANGER] system disabled when audit logs full
