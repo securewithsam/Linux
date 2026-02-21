@@ -51,4 +51,4 @@ echo "Paste the contents here for analysis."
 
 ---
 
-Run it, paste the output here and I'll give you a **specific, tailored exclusion list** for your exact environment — not a generic one. That way nothing breaks and you get the best possible CIS score for your actual setup.
+Run it, paste the output in ChatGPT or Claude  and and upload the CIS buildkit and it will give you a **specific, tailored exclusion list** for your exact environment — not a generic one. That way nothing breaks and you get the best possible CIS score for your actual setup.
