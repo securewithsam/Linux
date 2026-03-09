@@ -18,7 +18,19 @@ apt-get update
 ```sh
 ntop-installer
 ```
+```bash
+ /etc/ntopng/ntopng.conf
+```
 
+```yml
+--interface=enp176s0f0
+--dns-mode=1
+--local-networks="172.16.0.0/12"
+--sticky-hosts=local
+-F=clickhouse
+
+```
 #### Install Click House
 
 https://clickhouse.com/docs/install#install-from-deb-packages
+
