@@ -59,16 +59,3 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-typ
 2. Close the lid
 3. Try reconnecting SSH → should stay alive
 
----
-
-## 🔒 Quick Security Note (since you're running a lab)
-
-Since this will be **always-on**, consider:
-
-* Set static IP or DHCP reservation
-* Enable firewall:
-
-  ```bash
-  sudo ufw allow ssh
-  sudo ufw enable
-  ```
