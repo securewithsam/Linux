@@ -30,8 +30,6 @@ Save and exit.
 sudo systemctl restart systemd-logind
 ```
 
-⚠️ This may log you out — that’s normal.
-
 ---
 
 ## ✅ 3. Disable suspend/hibernate completely (recommended for lab)
