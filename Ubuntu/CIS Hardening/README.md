@@ -150,8 +150,9 @@ The kit will run through all controls. Controls in the exclusion list are skippe
 ```bash
 sudo oscap xccdf eval \
   --profile xccdf_org.ssgproject.content_profile_cis_level1_server \
-  --report /tmp/cis-report-AFTER.html \
-  /usr/share/xml/scap/ssg/content/ssg-ubuntu2404-ds.xml
+  --results /tmp/cis-results.xml \
+  --report /tmp/cis-report.html \
+  scap-security-guide-0.1.76/ssg-ubuntu2404-ds.xml
 ```
 
 Copy the reports to your Windows machine:
