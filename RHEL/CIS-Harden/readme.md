@@ -2,7 +2,7 @@
 sudo mkdir -p ~/CIS && cd ~/CIS
 sudo tar -xf red_hat_enterprise_linux_9.tar
 ls -la
-cd cis_lbk_red_hat_enterprise_linux_9.tar
+cd red_hat_enterprise_linux_9.tar
 chmod +x rhel9-cis-pre-harden.sh
 chmod +x red_hat_enterprise_linux_9.sh
 sudo bash rhel9-cis-pre-harden.sh
