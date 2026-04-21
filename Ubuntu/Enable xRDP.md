@@ -23,7 +23,7 @@ sudo apt install -y xrdp
 sudo systemctl enable xrdp
 sudo systemctl start xrdp
 sudo adduser infra-admin ssl-cert
-echo "startxfce4" > /home/velnet_jason/.xsession
+echo "startxfce4" > /home/infra-admin/.xsession
 sudo apt install -y xfce4 xfce4-goodies
 sudo systemctl restart xrdp
 ```
